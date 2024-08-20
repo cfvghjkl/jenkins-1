@@ -1,0 +1,22 @@
+pipeline{
+  agent none
+  stages{
+     stage('BACK-END'){
+        agent{
+          docker { image 'maven:3.8.1-adoptopenjdk-11'}
+          }
+          steps{
+            sh 'mv --version'
+            }
+    } 
+    stage( 'FRONT-END' ){
+      agent{
+       docker { image 'node:16-apline' }
+       }
+    steps{
+       sh 'node --version'
+     }
+   } 
+ }  
+   
+       
